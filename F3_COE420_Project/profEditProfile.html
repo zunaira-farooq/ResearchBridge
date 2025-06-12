@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professor Profile Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+    <style>
+        .profile-section, .action-buttons {
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Profile Management -->
+    <div class="container mt-5">
+        <h2 class="mb-4">Professor Profile Management</h2>
+        
+        <!-- Profile Details -->
+        <div class="project-card mb-4">
+            <h4>Personal Information</h4>
+            <!-- Display the current profile picture -->
+            <img id="profile-pic" src="icons/prof-avatar.png" class="img-thumbnail mb-3" style="width: 150px; height: 150px;">
+                    
+            <!-- File input to upload new profile picture -->
+            <input type="file" class="form-control" accept="image/*">
+            <br>
+            <form>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Full Name</label>
+                    <input type="text" class="form-control" id="name" value="Prof Name">
+                </div>
+                <div class="mb-3">
+                    <label for="linkedin" class="form-label">LinkedIn</label>
+                    <input type="text" class="form-control" id="linkedin" value="linkedin.com/in/username">
+                </div>
+                <div class="mb-3">
+                    <label for="website" class="form-label">AUS Website Link</label>
+                    <input type="text" class="form-control" id="website" value="AUS Page">
+                </div>
+                <div class="mb-3">
+                    <label for="phone" class="form-label">Phone Number</label>
+                    <input type="text" class="form-control" id="phone" value="+1234567890">
+                </div>
+                <button type="submit" class="btn" style="background-color: #4f0007 !important;
+    color: white !important;">Save Changes</button>
+            </form>
+        </div>
+
+        <!-- Account Actions -->
+        <div class="project-card">
+            <h4>Account Settings</h4>
+            <button class="btn btn-warning me-2">Change Password</button>
+            <button class="btn btn-danger">Delete Account</button>
+        </div>
+    </div>
+    <br>
+    <!-- Footer -->
+    <footer class="footer text-center bg-dark text-light py-3">
+        <div class="container">
+            <p>&copy; 2024 ResearchBridge. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

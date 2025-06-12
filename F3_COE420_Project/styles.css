@@ -1,0 +1,333 @@
+/* General Layout */
+html, body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+body.dark-theme {
+    background-color: #121212;
+    color: white;
+}
+
+/* Main content area */
+.main-content, .content {
+    flex-grow: 1;
+    flex: 1;
+}
+
+/* Hero Section */
+.hero, .signuphero {
+    background-color: #f8f9fa;
+    display: flex;
+    align-items: center;
+    flex: 1;
+    padding: 20px;
+}
+
+.hero img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    margin-top: 30px;
+}
+
+.hero-content .btn-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #4f0007 !important;
+}
+
+/* Primary Button */
+.btn-prim {
+    background-color: #4f0007 !important;
+    color: white !important;
+}
+
+/* Footer */
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Card Layout */
+.card-container, .project-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    align-items: center;
+    margin-top: 45px;
+}
+
+.card, .project-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.card {
+    border-color: #4f0007 !important;
+    width: 500px;
+    color: #4f0007 !important;
+}
+
+.project-card {
+    background-color: #f0f0f0;
+    margin: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Card Content */
+.card-body {
+    width: 50%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+.card-header, .project-card h3 {
+    font-size: 30px;
+    text-align: center;
+}
+
+.card-text, .project-card p {
+    margin: 5%;
+    margin-bottom: 10px;
+}
+
+.card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.project-card .join-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.project-card .join-button:hover {
+    background-color: #0056b3;
+}
+
+/* Profile Section */
+.profile-header {
+    background-color: #f1f1f1;
+    border-radius: 10px;
+}
+
+.profile-picture {
+    position: relative;
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+}
+
+.profile-picture img {
+    width: 150px;
+    height: 150px;
+}
+
+/* Icons */
+.contact-icons {
+    height: 20px;
+    width: 20px;
+}
+
+/* Project Dashboard */
+.project-container .row {
+    text-align: center;
+}
+
+.project-container .card {
+    max-width: 100%;
+    min-height: 18rem;
+    background-color: #4f0007 !important;
+    color: white;
+    border-radius: 5px;
+}
+
+.main-container {
+    flex: 1;
+    padding: 20px;
+}
+
+.project-card h3 {
+    margin-top: 0;
+}
+
+/* Search and Filter */
+.search-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+.search-container input,
+.search-container select {
+    margin: 10px 0;
+    padding: 10px;
+    width: 300px;
+    font-size: 16px;
+}
+
+.results-container {
+    margin: 20px;
+}
+
+/* Additional Styling for New Elements in RA Dashboard */
+.project-card {
+    padding: 15px;
+}
+
+.project-card .badge {
+    font-size: 0.85em;
+    margin-right: 5px;
+}
+
+/* Theme Toggle (JavaScript controlled) */
+.dark-theme .project-card {
+    background-color: #2c2c2c;
+}
+
+.dark-theme .card, .dark-theme .footer .profile-header{
+    background-color: #333;
+    color: white;
+}
+
+/* Custom styling for the project cards */
+.project-card {
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative; /* Make the card container relative for absolute positioning of badges */
+}
+
+.project-card .badge {
+    position: absolute; /* Position the badge inside the card */
+    top: 10px; /* Align to the top */
+    right: 10px; /* Align to the right */
+    z-index: 1; /* Ensure the badge is above other content */
+}
+
+/*Notification page*/
+.notifications-container {
+    margin: 2rem auto;
+    width: 70%; /* Occupy most of the page */
+    max-width: 1200px;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex: 1; /*to fix the footer of the page*/
+}
+
+.notification-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #e3e3e3;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+}
+
+.notification-item:hover {
+    background-color: #f1f1f1;
+}
+
+.notification-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #343a40;
+    margin: 0;
+}
+
+.notification-text {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin: 0;
+}
+
+.notification-meta {
+    font-size: 0.9rem;
+    color: #adb5bd;
+    text-align: right;
+}
+
+/* Space between radio button and text */
+.form-check-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Adds space between radio button and text */
+}
+
+/* Custom styling for the dashboard */
+.project-card {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px 0;
+}
+
+.project-card p {
+    margin: 5px 0;
+    margin-bottom: 15px;
+}
+
+p{
+    margin: 0;
+}
+
+.dark-theme .project-card {
+    background-color: #2c2c2c;
+}
+
+.content-grid .col {
+    margin-bottom: 20px;
+}
+
+/* Dark mode for profile header */
+.dark-theme .profile-header {
+    background-color: #2c2c2c; /* Dark background */
+    color: #ffffff; /* Light text */
+}
+
+/* Update text color of nested elements */
+.dark-theme .profile-header .contact-info span,
+.dark-theme .profile-header .contact-info a {
+    color: #dcdcdc;
+}

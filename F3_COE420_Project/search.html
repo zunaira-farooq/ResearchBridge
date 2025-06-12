@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Bridge</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        .results-container p{
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin-left: 0px
+        }
+    </style>
+    <script>
+        // Example: Get user role from the backend or URL (mocked here as "RA" or "Professor")
+        const userRole = ""; // Replace this with dynamic retrieval of the user role
+    
+        // Update navigation bar links dynamically
+        document.addEventListener("DOMContentLoaded", () => {
+            const homeLink = document.querySelector(".nav-link[href='RADashboard.html']");
+            const notificationsLink = document.querySelector(".nav-link[href='RANotifications.html']");
+            const editProfileLink = document.querySelector(".dropdown-item[href='RAeditProfile.html']");
+    
+            if (userRole === "Professor") {
+                homeLink.setAttribute("href", "ProfDashboard.html"); // Set to professor's dashboard
+                notificationsLink.setAttribute("href", "ProfNotifications.html"); // Set to professor's notifications
+                editProfileLink.setAttribute("href", "ProfEditProfile.html"); // Set to professor's edit profile
+            }
+        });
+    </script>
+</head>
+<body>    
+    <!-- Updated Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">ResearchBridge</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="RADashboard.html">Home</a> <!-- This link will be updated dynamically -->
+                    </li>
+                    <!-- Theme Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="themeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Theme
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="themeDropdown">
+                            <li><a class="dropdown-item" href="#" onclick="setTheme('light')">Light Theme</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="setTheme('dark')">Dark Theme</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="RANotifications.html">Notifications</a> <!-- This link will be updated dynamically -->
+                    </li>
+                    <!-- Profile Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Profile
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+                            <li><a class="dropdown-item" href="RAeditProfile.html">Edit Profile</a> <!-- This link will be updated dynamically -->
+                            </li>
+                            <li><a class="dropdown-item" href="index.html">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>    
+
+<!-- Main Content -->
+<div class="main-content container py-5">
+<header>
+    <h2 class="text-center">Search & Filter</h2>
+</header>
+<div class="search-container">
+    <form id="search-form" class="row g-3">
+        <div class="col-md-4">
+            <input type="text" id="search-bar" class="form-control" placeholder="Search by keyword">
+        </div>
+        <div class="col-md-4">
+            <select id="profile-filter" class="form-select">
+                <option value="">Select Profile Type</option>
+                <option value="Professor">Professor</option>
+                <option value="RA">Research Assistant</option>
+            </select>
+        </div>
+        <div class="col-md-4">
+            <select id="interest-filter" class="form-select">
+                <option value="">Research Interest</option>
+                <option value="AI">Artificial Intelligence</option>
+                <option value="ML">Machine Learning</option>
+                <option value="DataScience">Data Science</option>
+                <option value="Robotics">Robotics</option>
+                <option value="Healthcare">Healthcare</option>
+            </select>
+        </div>
+        <div class="col-md-4">
+            <select id="skills-filter" class="form-select">
+                <option value="">Skills</option>
+                <option value="Python">Python</option>
+                <option value="DataAnalysis">Data Analysis</option>
+                <option value="Robotics">Robotics</option>
+                <option value="MachineLearning">Machine Learning</option>
+            </select>
+        </div>
+        <div class="col-md-4">
+            <select id="paid-filter" class="form-select">
+                <option value="">Compensation</option>
+                <option value="Paid">Paid</option>
+                <option value="Unpaid">Unpaid</option>
+            </select>
+        </div>
+        <div class="col-md-4">
+            <select id="grant-filter" class="form-select">
+                <option value="">Grant Availability</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+        <div class="col-md-12 text-center">
+            <button type="button" onclick="filterProjects()" class="btn btn-prim">Search</button>
+        </div>
+    </form>
+</div>
+
+
+<div class="results-container" id="project-results">
+  <!-- Example project cards -->
+  <div class="project-card" data-interest="AI" data-skills="Python" data-paid="Paid" data-grant="Yes">
+      <h3 style="text-align: left;">AI-based Image Classification</h3>
+      <p>Focuses on developing neural networks for classifying medical images.</p>
+      <button class="btn btn-prim" onclick="showNewProjectDetails()">View Project</button>
+  </div>
+  <br>
+  <div class="project-card" data-interest="ML" data-skills="Machine Learning" data-paid="Unpaid" data-grant="No">
+      <h3 style="text-align: left;">Machine Learning for Climate Change</h3>
+      <p>Uses machine learning to predict climate patterns and impacts.</p>
+      <button class="btn btn-prim" onclick="showNewProjectDetails()">View Project</button>
+  </div>
+  <br>
+  <div class="project-card" data-interest="DataScience" data-skills="Data Analysis" data-paid="Paid" data-grant="Yes">
+      <h3 style="text-align: left;">Data Science in Healthcare</h3>
+      <p>Applying data science to healthcare data for predictive analytics.</p>
+      <button class="btn btn-prim" onclick="showNewProjectDetails()">View Project</button>
+  </div>
+  <br>
+  <div class="project-card" data-interest="Robotics" data-skills="Robotics" data-paid="Unpaid" data-grant="No">
+      <h3 style="text-align: left;">Robotics for Elderly Care</h3>
+      <p>Developing robots to assist in elderly care and daily activities.</p>
+      <button class="btn btn-prim" onclick="showNewProjectDetails()">View Project</button>
+  </div>
+  <br>
+  <div class="project-card" data-interest="Healthcare" data-skills="Python" data-paid="Unpaid" data-grant="No">
+      <h3 style="text-align: left;">Healthcare Monitoring with IoT</h3>
+      <p>Using IoT devices to monitor patient vitals and health status remotely.</p>
+      <button class="btn btn-prim" onclick="showNewProjectDetails()">View Project</button>
+  </div>
+  <br>
+
+  <!-- Additional professor/RA profiles here -->
+  <div class="project-card" data-profile="Professor">
+    <h3 style="text-align: left;">Omar Arif</h3>
+    <p>Specializing in Artificial Intelligence and Computer Vision</p>
+    <a href="viewProfProfile.html" class="btn btn-prim">View Profile</a>
+  </div>
+  <br>
+  <div class="project-card" data-profile="RA">
+    <h3 style="text-align: left;">Ann Maria</h3>
+    <p>Expertise in Deep Learning and Machine Learning</p>
+    <a href="viewRAprofile.html" class="btn btn-prim">View Profile</a>
+  </div>
+</div>
+</div>
+
+
+<!-- Footer -->
+<footer class="footer text-center">
+    <div class="container">
+        <p>&copy; 2024 ResearchBridge. All Rights Reserved.</p>
+    </div>
+</footer>
+</body>
+</html>
